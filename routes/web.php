@@ -1,15 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Berita;
 Route::get('/', function () {
     return view('home',[
         'title'=>'Homepage'
     ]);
 });
+
+
 Route::get('/berita', function () {
     return view('berita',[
-        'title'=> "Berita"
+        'title'=> "Berita",
+        "beritas" => Berita::ambilberita(),
     ]);
 });
 Route::get('/profile', function () {
@@ -24,5 +27,18 @@ Route::get('/profile', function () {
 Route::get('/kontak', function () {
     return view('kontak',[
         "title"=>"Kontak"
+    ]);
+});
+Route::get('/berita/{slug}', function ($slug) {
+    
+// $berita=[];
+// foreach($data_berita as $b){
+//     if($b["slug"] === $slug){
+//         $berita=$b;
+//     }
+// }
+    return view('beritatunggal',[
+        'title'=>Berita::getTitle($slug),
+        'berita'=>Berita::getBerita($slug),
     ]);
 });
