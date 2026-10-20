@@ -4,7 +4,7 @@
     @foreach($beritas as $berita)
     <h2><a href="/berita/{{$berita['slug']}}">{{$berita["judul"]}}</a></h2>
     <h3>{{$berita["penulis"]}}</h3>
-    <p>{{$berita["content"]}}</p>
+    <p>{{$berita["konten"]}}</p>
     @endforeach
     </div>
 @endsection

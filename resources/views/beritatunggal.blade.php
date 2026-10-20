@@ -5,7 +5,7 @@
     <h5>penulis: {{$berita['penulis']}}</h5>
 </div>
 <div class="text-justify">
-       <p>{{$berita['content']}}</p>
+       <p>{{$berita['konten']}}</p>
 </div>
 <a href="/berita">BACKKKKKKKK</a>
 @endsection
