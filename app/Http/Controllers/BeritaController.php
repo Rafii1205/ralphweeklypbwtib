@@ -13,12 +13,8 @@ class BeritaController extends Controller
     ]);
     }
     public function getBerita($slug){
-        $beritas=Berita::all();
-        foreach ($beritas as $berita){
-            if($berita['slug'] === $slug){
-                $beritatunggal=$berita;
-            }
-        }
+        $beritatunggal = Berita::all()->firstWhere('slug', $slug);
+        abort_if($beritatunggal === null, 404);
         return view('beritatunggal',[
         'title'=> $beritatunggal['judul'],
         'berita'=>$beritatunggal,
